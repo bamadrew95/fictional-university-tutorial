@@ -18,8 +18,8 @@
                       'theme_location' => 'footerLocation1'
                     ));
                   ?> -->
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Programs</a></li>
+                  <li><a href="/about-us/">About Us</a></li>
+                  <li><a href="<?php echo get_post_type_archive_link('program')?>">Programs</a></li>
                   <li><a href="<?php echo get_post_type_archive_link('event') ?>">Events</a></li>
                   <li><a href="#">Campuses</a></li>
                 </ul>
