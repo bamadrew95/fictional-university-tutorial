@@ -39,6 +39,8 @@ function university_post_types() {
 
     //Event Post Type
     register_post_type('event', array(    // https://developer.wordpress.org/reference/functions/register_post_type/
+        'capability_type' => 'event', // for making unique user role access
+        'map_meta_cap' => true, // for making unique user role access
         'show_in_rest' => true,
         'supports' => array(
             'title', 'editor', 'excerpt' // Need to include editor if you want to use rest_api and modern block editor.
