@@ -69,7 +69,7 @@
               } else {
                 echo wp_trim_words(get_the_content(), 18);
               }
-               ?><a href="<?php the_permalink(); ?>" class="nu gray">Read more</a></p>
+               ?><a href="<?php the_permalink(); ?>" class="nu gray"> Read more</a></p>
             </div>
           </div>
 
@@ -88,7 +88,7 @@
               <div class="hero-slider__overlay">
                 <h2 class="headline headline--medium t-center">Free Transportation</h2>
                 <p class="t-center">All students have free unlimited bus fare.</p>
-                <p class="t-center no-margin"><a href="#" class="btn btn--blue">Learn more</a></p>
+                <p class="t-center no-margin"><a href="#" class="btn btn--blue"> Learn more</a></p>
               </div>
             </div>
           </div>
