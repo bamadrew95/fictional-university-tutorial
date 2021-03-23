@@ -1,11 +1,29 @@
 <?php
 
 function university_post_types() {
+    // Note Post Type
+    register_post_type('note', array(
+        'show_in_rest' => true,
+        'supports' => array(
+            'title', 'editor'
+        ),
+        'public' => false,
+        'show_ui' => true, // forces it to show in admin dashboard
+        'labels' => array(
+            'name' => 'Notes',
+            'add_new_item' => 'Add New Note',
+            'edit_item' => 'Edit Note',
+            'all_items' => 'All Notes',
+            'singular_name' => 'Note'
+        ),
+        'menu_icon' => 'dashicons-welcome-write-blog'
+    ));
+
     //Professor Post Type
     register_post_type('professor', array(
         'show_in_rest' => true,
         'supports' => array(
-            'title', 'editor'
+            'title', 'editor', 'thumbnail'
         ),
         'public' => true,
         'labels' => array(
