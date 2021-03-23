@@ -113,6 +113,43 @@ function university_adjust_queries($query) {
     }
 }
 
-add_action('pre_get_posts', 'university_adjust_queries')
+add_action('pre_get_posts', 'university_adjust_queries');
+
+/////////////////////////////////////////////////////////
+    // Subcriber Account redirect to home page
+/////////////////////////////////////////////////////////
+
+add_action('admin_init', 'redirectSubsToFrontend');
+
+function redirectSubsToFrontend() {
+$ourCurrentUser = wp_get_current_user();
+
+    if(count($ourCurrentUser->roles) == 1 AND $ourCurrentUser->roles[0] == 'subscriber') {
+        wp_redirect(site_url('/'));
+        exit;
+    }
+}
+
+/////////////////////////////////////////////////////////
+    // Customize login screen //
+/////////////////////////////////////////////////////////
+
+add_filter('login_headerurl', 'ourHeaderUrl'); // change wordpress logo link destination //
+add_filter('login_headertitle', 'ourLoginTitle'); // change wordpress logo text //
+
+function ourLoginTitle() {
+    return get_bloginfo('name');
+}
+
+function ourHeaderUrl() {
+    return esc_url(site_url('/'));
+}
+
+function universityLoginStyles() {
+    wp_enqueue_style('our-main-styles', get_theme_file_uri('/bundled-assets/styles.bc49dbb23afb98cfc0f7.css'));
+    wp_enqueue_style('custom_google_fonts', 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+}
+
+add_action('login_enqueue_scripts', 'universityLoginStyles');
 
 ?>
