@@ -72,8 +72,8 @@ class Search {
             <h2 class="search-overlay__section-title">Professors</h2>
             ${results.professors.length ? '<ul class="professor-cards">' : `<p>No professors match that search.</p>`}
               ${results.professors
-          .map(
-            item => `
+            .map(
+              item => `
                 <li class="professor-card__list-item">
                   <a class="professor-card" href="${item.permalink}">
                     <img class="professor-card__image" src="${item.image}">
@@ -100,7 +100,7 @@ class Search {
                   </a>
                   <div class="event-summary__content">
                     <h5 class="event-summary__title headline headline--tiny"><a href="${item.permalink}">${item.title}</a></h5>
-                    <p>${item.description} <a href="${item.permalink}" class="nu gray">Learn more</a></p>
+                    <p>${item.excerpt} <a href="${item.permalink}" class="nu gray">Learn more</a></p>
                   </div>
                 </div>
               `
